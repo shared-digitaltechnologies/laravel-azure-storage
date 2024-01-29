@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="../../../vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="../../../vendor/autoload.php"
+         cacheResultFile="../../../.phpunit.cache/packages/php/laravel-azure-storage/cache.result"
+         colors="true">
+    <testsuites>
+        <testsuite name="Unit">
+            <directory>tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Feature">
+            <directory>tests/Feature</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>src</directory>
+        </include>
+    </source>
+    <coverage cacheDirectory="../../../.phpunit.cache/packages/php/laravel-azure-storage"
+              includeUncoveredFiles="true"
+              ignoreDeprecatedCodeUnits="false"
+              pathCoverage="false"
+              disableCodeCoverageIgnore="false">
+        <report>
+            <html outputDirectory="../../../coverage/packages/php/laravel-azure-storage/html-coverage"
+                  lowUpperBound="50"
+                  highLowerBound="90" />
+            <text outputFile="../../../coverage/packages/php/laravel-azure-storage/coverage.txt"
+                  showUncoveredFiles="false"
+                  showOnlySummary="true" />
+        </report>
+    </coverage>
+    <php>
+        <env name="APP_ENV" value="testing" force="true" />
+        <env name="AZURE_STORAGE_CONNECTION_STRING" value="UseDevelopmentStorage=true" />
+    </php>
+</phpunit>
