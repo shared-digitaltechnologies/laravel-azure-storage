@@ -51,13 +51,6 @@ class ServiceProvider extends BaseServiceProvider
     {
         $this->bootBlob();
         $this->bootQueue();
-
-        if($this->app->runningInConsole()) {
-            $this->commands([
-                Console\Commands\ListAccounts::class,
-                Console\Commands\ListTables::class
-            ]);
-        }
     }
 
     protected function registerBlobServices(): void
