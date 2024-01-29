@@ -13,7 +13,7 @@ trait InitializesStorageTables
      */
     protected array $testTables = [];
 
-    public function teardownCreatesStorageTables(): void
+    public function tearDownCreatesStorageTables(): void
     {
         foreach ($this->testTables as $table) {
             try {

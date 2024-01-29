@@ -186,7 +186,7 @@ class AzureStorageService implements ArrayAccess, IteratorAggregate
 
     public function hasAccount(?string $key = null): bool
     {
-        $key ??= $this->defaultKey;
+        $key ??= $this->getDefaultKey();
 
         return array_key_exists($key, $this->storageAccounts)
             || array_key_exists($key, $this->getAccountConfigs());
