@@ -1,6 +1,6 @@
 {
     "name": "shrd/laravel-azure-storage",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "description": "Generated Composer Package",
     "license": "proprietary",
     "keywords": [],
@@ -8,7 +8,7 @@
     "require": {
         "php": ">= 8.2",
         "ext-simplexml": "*",
-        "shrd/laravel-azure-identity": "0.2.1",
+        "shrd/laravel-azure-identity": "0.2.2",
         "shrd/laravel-azure-connection-strings": "0.2.0",
         "shrd/laravel-files-upload-contracts": "0.2.0",
         "microsoft/azure-storage-queue": "^1.3.4",
