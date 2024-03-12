@@ -73,9 +73,11 @@ class AzureStorageService implements ArrayAccess, IteratorAggregate
 
         if(array_key_exists($key, $this->storageAccountConfigs)) {
             if($this->resolvedStorageAccountConfigs[$key] ?? false) {
+                $credential = $this->storageAccountConfigs[$key]['credential'] ?? null;
                 $result = $this->keyVaultService->resolveKeys(
                     $this->storageAccountConfigs[$key],
-                    self::KEY_VAULT_RESOLVABLE_CONFIG_KEYS
+                    self::KEY_VAULT_RESOLVABLE_CONFIG_KEYS,
+                    $credential
                 );
                 $this->resolvedStorageAccountConfigs[$key] = true;
                 return $result;
@@ -128,7 +130,7 @@ class AzureStorageService implements ArrayAccess, IteratorAggregate
             $queueOptions = Arr::get($account, 'queue.options', []);
             return StorageAccount::fromConnectionString(
                 connectionString: $connectionString,
-                credential: $this->credentialService->credential(Arr::get($account, 'credential_driver')),
+                credential: $this->credentialService->credential($account['credential'] ?? null),
                 blobPublicEndpoint: $blobPublicEndpoint,
                 retryConfig: $retryConfig,
                 blobOptions: $blobOptions,

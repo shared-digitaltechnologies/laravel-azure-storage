@@ -51,6 +51,10 @@ class ServiceProvider extends BaseServiceProvider
     {
         $this->bootBlob();
         $this->bootQueue();
+
+        $this->publishes([
+            __DIR__.'/../config/azure-storage.php' => config_path('azure-storage.php')
+        ]);
     }
 
     protected function registerBlobServices(): void
