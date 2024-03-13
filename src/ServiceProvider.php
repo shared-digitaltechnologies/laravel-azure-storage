@@ -22,12 +22,15 @@ use Shrd\Laravel\Azure\Storage\Queues\Arrays\ArrayQueueManager;
 use Shrd\Laravel\Azure\Storage\Queues\AzureStorageQueueConnector;
 use Shrd\Laravel\Azure\Storage\Queues\QueueService;
 use Shrd\Laravel\Azure\Storage\Tables\TableConnection;
+use Shrd\Laravel\Azure\Identity\ServiceProvider as AzureIdentityServiceProvider;
 
 class ServiceProvider extends BaseServiceProvider
 {
 
     public function register(): void
     {
+        $this->app->register(AzureIdentityServiceProvider::class);
+
         $this->app->singleton(AzureStorageService::class);
 
         $this->app->bind(StorageAccount::class, function (Container $app, array $config) {
