@@ -6,9 +6,9 @@
     "require": {
         "php": ">= 8.2",
         "ext-simplexml": "*",
-        "shrd/laravel-azure-identity": "^0.3.0",
-        "shrd/laravel-azure-connection-strings": "^0.3.0",
-        "shrd/laravel-files-upload-contracts": "^0.3.0",
+        "shrd/laravel-azure-identity": "^0.4",
+        "shrd/laravel-azure-connection-strings": "^0.4",
+        "shrd/laravel-files-upload-contracts": "^0.4",
         "microsoft/azure-storage-queue": "^1.3.4",
         "microsoft/azure-storage-blob": "^1.5.4",
         "microsoft/azure-storage-table": "^1.1.6",
@@ -39,7 +39,9 @@
     },
     "extra": {
         "laravel": {
-            "providers": ["Shrd\\Laravel\\Azure\\Storage\\ServiceProvider"],
+            "providers": [
+                "Shrd\\Laravel\\Azure\\Storage\\ServiceProvider"
+            ],
             "aliases": {
                 "StorageTable": "Shrd\\Laravel\\Azure\\Storage\\Facades\\StorageTable",
                 "AzureStorage": "Shrd\\Laravel\\Azure\\Storage\\Facades\\AzureStorage"
