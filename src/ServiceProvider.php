@@ -143,8 +143,8 @@ class ServiceProvider extends BaseServiceProvider
 
     protected function bootQueue(): void
     {
-        Queue::extend('azure-storage', function(Container $app) {
-            return $app->make(AzureStorageQueueConnector::class);
+        Queue::extend('azure-storage', function() {
+            return $this->app->make(AzureStorageQueueConnector::class);
         });
     }
 }
