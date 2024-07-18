@@ -57,7 +57,7 @@ class AzureStorageQueue extends Queue implements QueueContract
     public function getQueueName(?string $queue = null): string
     {
         $baseName = $queue?: $this->default;
-        if(!$this->queueNameIsPrefixed($queue)) return $this->prefix.$baseName;
+        if(!$this->queueNameIsPrefixed($baseName)) return $this->prefix.$baseName;
         return $baseName;
     }
 
