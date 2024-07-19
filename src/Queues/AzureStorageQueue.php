@@ -11,9 +11,18 @@ use MicrosoftAzure\Storage\Queue\Models\CreateMessageResult;
 use MicrosoftAzure\Storage\Queue\Models\ListMessagesOptions;
 use Shrd\Laravel\Azure\Storage\Exceptions\AzureStorageServiceException;
 
+/**
+ * Represents one queue in azure storage queues.
+ */
 class AzureStorageQueue extends Queue implements QueueContract
 {
-
+    /**
+     * @param QueueService $queueService The queue service wrapper.
+     * @param string $default The name of the default queue.
+     * @param int $visibilityTimeout The time in seconds that the queue is invisible to other requesters. Set this to
+     *                               the expected time of the longest request.
+     * @param string $prefix
+     */
     public function __construct(protected QueueService $queueService,
                                 protected string $default,
                                 protected int $visibilityTimeout,

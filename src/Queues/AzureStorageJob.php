@@ -50,6 +50,11 @@ class AzureStorageJob extends Job implements JobContract
         );
     }
 
+    public function attempts(): int
+    {
+        return $this->job->getDequeueCount();
+    }
+
     public function getJobId(): string
     {
         return $this->job->getMessageId();
@@ -64,12 +69,9 @@ class AzureStorageJob extends Job implements JobContract
         return \Safe\base64_decode($encodedMessageText);
     }
 
-    /**
-     * @throws UrlException
-     */
-    public function attempts(): int|string
+    public function getQueueService(): QueueService
     {
-        return $this->getRawBody();
+        return $this->queueService;
     }
 
     public function getQueueMessage(): QueueMessage
