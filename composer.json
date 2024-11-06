@@ -6,9 +6,9 @@
     "require": {
         "php": ">= 8.2",
         "ext-simplexml": "*",
-        "shrd/laravel-azure-identity": "^0.5.1",
-        "shrd/laravel-azure-connection-strings": "^0.5.1",
-        "shrd/laravel-files-upload-contracts": "^0.5.1",
+        "shrd/laravel-azure-identity": "^0.5.2",
+        "shrd/laravel-azure-connection-strings": "^0.5.2",
+        "shrd/laravel-files-upload-contracts": "^0.5.2",
         "microsoft/azure-storage-queue": "^1.3.4",
         "microsoft/azure-storage-blob": "^1.5.4",
         "microsoft/azure-storage-table": "^1.1.6",
